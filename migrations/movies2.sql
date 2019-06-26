@@ -42,6 +42,23 @@ ENGINE = InnoDB
 AUTO_INCREMENT = 8
 DEFAULT CHARACTER SET = utf8;
 
+CREATE TABLE IF NOT EXISTS `movies`.`user`
+(
+  id INT(11) PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(30) NULL DEFAULT NULL ,
+  login VARCHAR(30) NULL DEFAULT NULL ,
+  password VARCHAR(70) NULL DEFAULT NULL ,
+  allow TINYINT(1) NULL DEFAULT NULL ,
+  deleted_at TIMESTAMP NULL DEFAULT NULL,
+  UNIQUE INDEX `login_deleted_at` (`login`,`deleted_at`)
+);
+
+INSERT INTO user(name,login,password,allow)
+VALUES ('admin','admin','d033e22ae348aeb5660fc2140aec35850c4da997',1);
+
+
+INSERT INTO user(name,login,password,allow)
+VALUES ('raul','raul','8b52b6b714585648fd300da0dbc0fa0678553280',1);
 
 -- -----------------------------------------------------
 -- Table `movies`.`forum`

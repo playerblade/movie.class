@@ -3,9 +3,8 @@
 </a><br><br>
 <form action="<?=Route::link("/person")?>" method="get">
     Name:
-    <br>
     <input type="text" name="name" value="<?= $filter['name'] ?? "" ?>"/>
-    <br>
+
     <label >
         <input type="radio" name="gender" value="0" >
         All
@@ -16,9 +15,9 @@
             <?= $gender['name']?>
         </label>
     <?php }?>
-    <br>
+
     Country:
-    <br>
+
     <select name="country_id" >
         <option value="0"> All Countryes</option>
         <?php foreach ($countries as $country){ ?>
@@ -27,8 +26,9 @@
             </option>
         <?php } ?>
     </select>
-    <br>
+
     <input type="submit" value="Filter"/>
+    <a href="<?= Route::link("/person")?>">reset</a>
 </form>
 <h2>List Of Persons</h2>
 <table border="1">

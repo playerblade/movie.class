@@ -3,6 +3,11 @@ include "loader.php";
 //dd($_SERVER);
 Route::get('/','\\Home\\Controller@index');
 
+Route::get('/login','\\Auth\\Controller@login');
+Route::post('/login','\\Auth\\Controller@check');
+Route::get('/logout','\\Auth\\Controller@logout');
+
+
 //Route::get('/category','\\Category\\Controller@index');
 //Route::get('/category/create','\\Category\\Controller@create');
 //Route::post('/category/store','\\Category\\Controller@store');

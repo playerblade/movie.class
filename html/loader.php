@@ -6,6 +6,8 @@
  * Time: 21:51
  */
 
+session_start();
+
 include "./config/config.php";
 include "./db.php";
 include "./functiones.php";
@@ -13,6 +15,9 @@ include "./functiones.php";
 include "./Core/Route.php";
 
 include "./Home/Controller.php";
+
+include "./Auth/Controller.php";
+include "./Auth/Auth.php";
 
 include "./Category/Controller.php";
 include "./Category/Category.php";
