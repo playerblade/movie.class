@@ -4,8 +4,12 @@
 <form action="<?=Route::link("/person")?>" method="get">
     Name:
     <br>
-    <input type="text" name="name"/>
+    <input type="text" name="name" value="<?= $filter['name'] ?? "" ?>"/>
     <br>
+    <label >
+        <input type="radio" name="gender" value="0" >
+        All
+    </label>
     <label >
         <input type="radio" name="gender" value="M" >
         Man
@@ -14,6 +18,17 @@
         <input type="radio" name="gender" value="F">
         Woman
     </label>
+    <br>
+    Country:
+    <br>
+    <select name="country_id" >
+        <option value="0"> All Countryes</option>
+        <?php foreach ($countries as $country){ ?>
+            <option value="<?= $country['id']?>"<?= $country['selected']?>>
+                <?= $country['country_name']?>
+            </option>
+        <?php } ?>
+    </select>
     <br>
     <input type="submit" value="Filter"/>
 </form>

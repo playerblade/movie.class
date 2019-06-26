@@ -28,6 +28,10 @@ class Person
                 $conditionsArray[]="p.gender ='M'";
             }
         }
+        if (!empty($filter['country_id']))
+        {
+            $conditionsArray[]= "p.country_id = :country_id";
+        }
         $db = getConnectionDB();
         $sql = "SELECT p.* , c.country_name
                 FROM person  p LEFT JOIN country c ON p.country_id = c.id 
@@ -38,6 +42,11 @@ class Person
         if (!empty($filter['name']))
         {
             $stm->bindParam(':name' , $filter['name']);
+        }
+
+        if (!empty($filter['country_id']))
+        {
+            $stm->bindParam(':country_id' , $filter['country_id']);
         }
 //        if (!empty($filter['gender']))
 //        {

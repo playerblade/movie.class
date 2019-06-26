@@ -15,8 +15,11 @@ class Controller
     {
 //        $data = $this->person->all();
         $person = Person::all($filter);
+        $countries = Country::getAllForSelect($filter['country_id'] ?? 0);
         $params =[
-            'data'=> $person /// prueba cambiando a person
+            'data'=> $person, /// prueba cambiando a person
+            'countries'=> $countries,
+            'filter' => $filter
         ];
         view("./Person/views/index.php", $params);//1
 
