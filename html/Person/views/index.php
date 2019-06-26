@@ -6,6 +6,15 @@
     <br>
     <input type="text" name="name"/>
     <br>
+    <label >
+        <input type="radio" name="gender" value="M" >
+        Man
+    </label>
+    <label >
+        <input type="radio" name="gender" value="F">
+        Woman
+    </label>
+    <br>
     <input type="submit" value="Filter"/>
 </form>
 <h2>List Of Persons</h2>

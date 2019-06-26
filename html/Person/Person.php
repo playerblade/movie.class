@@ -16,8 +16,17 @@ class Person
         if (!empty($filter['name']))
         {
             $conditionsArray[]="(p.name LIKE CONCAT('%',:name,'%') OR p.lastname LIKE CONCAT('%',:name,'%')
-                                 p.gender LIKE CONCAT('%',:gender,'%')
+                                 OR p.gender LIKE CONCAT('%',:name,'%')
                                  )";
+        }
+        if (!empty($filter['gender']))
+        {
+            if ($filter['gender'] == 'F'){
+                $conditionsArray[]="p.gender ='F'";
+            }
+            if ($filter['gender'] == 'M'){
+                $conditionsArray[]="p.gender ='M'";
+            }
         }
         $db = getConnectionDB();
         $sql = "SELECT p.* , c.country_name
@@ -29,8 +38,12 @@ class Person
         if (!empty($filter['name']))
         {
             $stm->bindParam(':name' , $filter['name']);
-            $stm->bindParam(':gender', $filter['gender']);
         }
+//        if (!empty($filter['gender']))
+//        {
+//
+//            $stm->bindParam(':gender', $filter['gender']);
+//        }
         $stm->execute();
         $persons = $stm->fetchAll();
         foreach ($persons as &$person)
