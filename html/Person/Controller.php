@@ -16,10 +16,12 @@ class Controller
 //        $data = $this->person->all();
         $person = Person::all($filter);
         $countries = Country::getAllForSelect($filter['country_id'] ?? 0);
+        $genders = Gender::getAllForRadio($filter['gender'] ?? "" );
         $params =[
             'data'=> $person, /// prueba cambiando a person
             'countries'=> $countries,
-            'filter' => $filter
+            'filter' => $filter,
+            'genders' => $genders
         ];
         view("./Person/views/index.php", $params);//1
 

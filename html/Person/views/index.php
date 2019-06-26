@@ -10,14 +10,12 @@
         <input type="radio" name="gender" value="0" >
         All
     </label>
-    <label >
-        <input type="radio" name="gender" value="M" >
-        Man
-    </label>
-    <label >
-        <input type="radio" name="gender" value="F">
-        Woman
-    </label>
+    <?php foreach ($genders as $gender){ ?>
+        <label >
+            <input type="radio" name="gender" value="<?= $gender['code'] ?>" <?= $gender['checked'] ?>/>
+            <?= $gender['name']?>
+        </label>
+    <?php }?>
     <br>
     Country:
     <br>
