@@ -1,6 +1,13 @@
 <a href="<?= Route::link("/person/create")?>">
     Add Persons
-</a>
+</a><br><br>
+<form action="<?=Route::link("/person")?>" method="get">
+    Name:
+    <br>
+    <input type="text" name="name"/>
+    <br>
+    <input type="submit" value="Filter"/>
+</form>
 <h2>List Of Persons</h2>
 <table border="1">
     <tr>

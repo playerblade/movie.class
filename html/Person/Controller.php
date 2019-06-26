@@ -11,10 +11,10 @@ class Controller
 //    {
 //        $this->person = new Person();
 //    }
-    function index()
+    function index($filter)
     {
 //        $data = $this->person->all();
-        $person = Person::all();
+        $person = Person::all($filter);
         $params =[
             'data'=> $person /// prueba cambiando a person
         ];
@@ -65,7 +65,7 @@ class Controller
             'person' => $person,
             'countries' => $countries,
             'genders' => $genders,
-            'action' => \Route::link("/person/{$id}/store")
+            'action' => \Route::link("/person/{$id}/update")
         ];
         view(__DIR__ . "/views/form.php", $params);// el controlador decide que regreser por ira siempre ahi
 

@@ -64,14 +64,15 @@ class Country
     }
     public  static function getAllForSelect($countryId =0){
         $countries = self::all();
-        foreach ($countries as &$country){ // ele & es una variable como puntero
+        foreach ($countries as &$country){ 
+            $country['selected']= $country['id'] == $countryId ? "selected" : "";
+        }
+        return $countries;
+        // ele & es una variable como puntero
 //            if ($country['id']=== $countryId){
 //                $country['selected'] = 'selected';
 //            }else{
 //                $country['selected']="";
 //            }
-            $country['selected']= $country['id'] == $countryId ? "selected" : "";
-        }
-        return $countries;
     }
 }

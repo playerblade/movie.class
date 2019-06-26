@@ -9,8 +9,9 @@ class Person
     {
         $this->db = getConnectionDB();
     }
-     public static function all()
+    public static function all($filter)
     {
+        $conditionsArray =[];
         $db = getConnectionDB();
         $sql = "SELECT p.* , c.country_name
                 FROM person  p LEFT JOIN country c ON p.id = c.id 
@@ -81,8 +82,6 @@ class Person
     public static function delete($id)
     {
         $db = getConnectionDB();
-//        eliminamos de la otra forma
-//        $sql = "UPDATE country SET deleted_at=NOW() WHERE id=:id";
         $sql ="UPDATE person SET deleted_at=NOW() IS NULL 
                WHERE id = :id;";
         $stm = $db->prepare($sql);

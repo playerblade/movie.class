@@ -51,9 +51,7 @@ class Route
             }
         }
 
-        if(!empty($_POST)){
-            $params["post"] = $_POST;
-        }
+            $params["data"] = $_REQUEST;
 
         return $params;
     }
