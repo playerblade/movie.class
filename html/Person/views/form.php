@@ -26,7 +26,7 @@
     <select name="country_id" id="">
         <option class="0">Select Countries</option>
         <?php foreach ($countries as $country){?>
-            <option value="<?= $country['id']?> " >
+            <option value="<?= $country['id']?> " <?= $country['selected'] ?> >
 
                 <?= $country['country_name'] ?>
 
